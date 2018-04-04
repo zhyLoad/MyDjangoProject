@@ -1,0 +1,2 @@
+# MyDjangoProject
+自己学习Django的一个项目，下载了天涯明月笙的一个DjangoFrameWork的代码，使用Python3.6在Windows上调试和二次开发。
