@@ -5,6 +5,7 @@ __date__ = '2018/3/9 0009 09:29'
 from django.conf import settings
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 
 from user_operation.models import UserFav
 
@@ -25,3 +26,10 @@ def del_user_fav(sender, instance=None, created=False, **kwargs):
     goods = instance.goods
     goods.fav_num -= 1
     goods.save()
+
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.create(user=instance)

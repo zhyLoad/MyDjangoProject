@@ -50,3 +50,20 @@ use the address: http://127.0.0.1:8000/
 支付宝打赏:
 
 ![mark](http://myphoto.mtianyan.cn/blog/180302/gDlBGemI60.jpg?imageslim)
+
+
+
+
+
+admin/admin123456
+
+
+
+
+
+注意：Python3.6环境可能还需要安装如下安装包
+raven=6.7.0
+djangorestframework=3.8.2
+drf-extensions=0.3.1
+django-redis=4.9.0
+pycryptodome=3.6.1
