@@ -23,6 +23,7 @@ use the address: http://127.0.0.1:8000/
 
 ## Contents：
 
+
 对应教程已开通简书连载文集: https://www.jianshu.com/nb/22309475
 
 **欢迎大家关注订阅，点赞！！！**
@@ -33,23 +34,9 @@ use the address: http://127.0.0.1:8000/
 
 [简书](https://www.jianshu.com/u/db9a7a0daa1f) && [mtianyan's blog](http://blog.mtianyan.cn/)
 
-有趣的Python群：619417153
 
 欢迎关注简书，star项目！谢谢！
 
-你的关注支持是我继续分享前进的动力。
-
-## 求打赏鼓励
-
-很高兴我写的文章（或我的项目代码）对你有帮助，请我吃包辣条吧！
-
-微信打赏:
-
-![mark](http://myphoto.mtianyan.cn/blog/180302/i52eHgilfD.png?imageslim)
-
-支付宝打赏:
-
-![mark](http://myphoto.mtianyan.cn/blog/180302/gDlBGemI60.jpg?imageslim)
 
 
 
@@ -68,3 +55,5 @@ djangorestframework=3.8.2
 drf-extensions=0.3.1
 django-redis=4.9.0
 pycryptodome=3.6.1
+
+django版本必须大于等于2.0
