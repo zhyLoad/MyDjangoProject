@@ -31,6 +31,8 @@ from users.views import SmsCodeViewset, UserViewset
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views
 from rest_framework_jwt.views import obtain_jwt_token
+from django.conf.urls import url,include
+from rest_framework.authtoken.views import obtain_auth_token
 
 # goods_list = GoodsListViewSet.as_view({
 #     'get': 'list',
@@ -88,7 +90,11 @@ urlpatterns = [
     # path('goods/', goods_list,name="goods-list"),
 
     # router的path路径
-    re_path('^', include(router.urls)),
+    # re_path('^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
+
+    url(r'^api/token/', obtain_auth_token, name='api-token'),
+
     # 自动化文档,1.11版本中注意此处前往不要加$符号
     path('docs/', include_docs_urls(title='mtianyan超市文档')),
     # 调试登录
