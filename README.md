@@ -57,3 +57,19 @@ django-redis=4.9.0
 pycryptodome=3.6.1
 
 django版本必须大于等于2.0
+
+
+使用过程简述：
+1.DownLoad代码，配置依赖包，需要的依赖包包括requirements.txt中和README.md中所有可能用到的包。
+2.数据库创建好，并修改settings.py中的数据库配置项
+3.终端进入虚拟环境，进行以下数据库更新和脚本执行命令：
+   1） python manage.py makemigrations ----更新当前最新的表结构设计脚本
+   2)  python manage.py migrate -----执行数据库建表操作
+4.创建超级管理员，按照命令提示一步一步输入就可创建
+    python manage.py createsuperuser
+5.启动服务：
+    python manage.py runserver
+    启动后，浏览器键入:http://localhost:8000/xadmin，就可看到登录页面，键入superuser的用户名密码可登录
+    键入http://localhost:8000，可以在浏览器看到所有Rest风格的API接口
+6.其他数据脚本导入
+   db_tools下有两个import_xxx.py文件，cd到该目录下（进入虚拟环境的前提下），执行python import_xxx.py，可将商品和目录相关的测试数据导入到数据库中。
