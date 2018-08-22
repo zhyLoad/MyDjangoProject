@@ -5,10 +5,10 @@
       var form = $(this);
       for (var i = $.fn.exform.renders.length - 1; i >= 0; i--) {
         $.fn.exform.renders[i](form)
-      }
-        form.addClass('rended');
+      };
+      form.addClass('rended');
     })
-  };
+  }
   $.fn.exform.renders = [];
   $(function() {
     $('.exform:not(.rended)').exform();
@@ -28,7 +28,7 @@
           }
       }
       return cookieValue;
-  };
+  }
 
   //dropdown submenu plugin
   $(document)
@@ -50,13 +50,13 @@
   
   //toggle class button
   $('body').on('click.xa.togglebtn.data-api', '[data-toggle=class]', function (e) {
-    var $this  = $(this), href;
+    var $this  = $(this), href
     var target = $this.attr('data-target')
         || e.preventDefault()
-        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''); //strip for ie7
-    var className = $this.attr('data-class-name');
+        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+    var className = $this.attr('data-class-name')
     $(target).toggleClass(className)
-  });
+  })
   
   // loading btn
   // $('.btn.btn-loading,.btn[type=submit]')
@@ -88,7 +88,7 @@
   // g-search
   $('#g-search .dropdown-menu a').click(function(){
       $('#g-search').attr('action', $(this).data('action')).submit();
-  });
+  })
 
   // save settings
   $.save_user_settings = function(key, value, success, error){
@@ -105,4 +105,4 @@
     });
   }
   
-})(jQuery);
+})(jQuery)

@@ -35,7 +35,7 @@
         } else {
           el.find('button[type=submit]').attr('disabled', 'disabled');
         }
-      };
+      }
       
       start_date.on('changeDate', function(ev){
           var startdate = start_date.data('date');

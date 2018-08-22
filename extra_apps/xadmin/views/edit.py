@@ -200,8 +200,8 @@ class ModelFormAdminView(ModelAdminView):
 
         if layout is None:
             layout = Layout(Container(Col('full',
-                                          Fieldset("", *fields, css_class="unsort no_title"), horizontal=True, span=12)
-                                      ))
+                Fieldset("", *fields, css_class="unsort no_title"), horizontal=True, span=12)
+            ))
         elif type(layout) in (list, tuple) and len(layout) > 0:
             if isinstance(layout[0], Column):
                 fs = layout
@@ -532,7 +532,7 @@ class UpdateAdminView(ModelFormAdminView):
             return request.path
         elif "_addanother" in request.POST:
             self.message_user(msg + ' ' + (_("You may add another %s below.")
-                                           % force_text(verbose_name)), 'success')
+                              % force_text(verbose_name)), 'success')
             return self.model_admin_url('add')
         else:
             self.message_user(msg, 'success')
@@ -544,7 +544,7 @@ class UpdateAdminView(ModelFormAdminView):
             elif self.has_view_permission():
                 change_list_url = self.model_admin_url('changelist')
                 if 'LIST_QUERY' in self.request.session \
-                        and self.request.session['LIST_QUERY'][0] == self.model_info:
+                and self.request.session['LIST_QUERY'][0] == self.model_info:
                     change_list_url += '?' + self.request.session['LIST_QUERY'][1]
                 return change_list_url
             else:

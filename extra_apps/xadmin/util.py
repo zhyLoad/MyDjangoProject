@@ -11,7 +11,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.encoding import force_text, smart_text, smart_str
 from django.utils.translation import ungettext
-from django.urls.base import reverse
+from django.urls import reverse
 from django.conf import settings
 from django.forms import Media
 from django.utils.translation import get_language
@@ -34,6 +34,11 @@ try:
     from django.utils.timezone import template_localtime as tz_localtime
 except ImportError:
     from django.utils.timezone import localtime as tz_localtime
+
+if django.VERSION < (1, 11):
+    DJANGO_11 = False
+else:
+    DJANGO_11 = True
 
 
 def xstatic(*tags):

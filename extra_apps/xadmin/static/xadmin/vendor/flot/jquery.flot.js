@@ -410,7 +410,7 @@ Licensed under the MIT license.
 			if (layerCache != null) {
 				for (var styleKey in layerCache) {
 					if (hasOwnProperty.call(layerCache, styleKey)) {
-						var styleCache = layerCache[styleKey];
+						var styleCache = layerCache[styleKey]
 						for (var key in styleCache) {
 							if (hasOwnProperty.call(styleCache, key)) {
 								styleCache[key].active = false;
@@ -2970,7 +2970,7 @@ Licensed under the MIT license.
         return this.each(function() {
             $.plot(this, data, options);
         });
-    };
+    }
 
     // round to nearby lower multiple of base
     function floorInBase(n, base) {

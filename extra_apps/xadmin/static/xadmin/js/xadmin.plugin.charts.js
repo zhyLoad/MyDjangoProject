@@ -45,7 +45,7 @@ $(document).ready(function(){
             $chart.data('chart-obj', chart);
         });
       })
-    };
+    }
 
     $('.chart-tab a').click(function(e){
       e.preventDefault();

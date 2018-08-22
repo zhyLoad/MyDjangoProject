@@ -16,7 +16,7 @@
             return findForm(node.parentNode);
         }
         return node;
-    };
+    }
     this.form = $(findForm(element));
 
     // link
@@ -44,20 +44,20 @@
     this.form.submit($.proxy(this.select_all, this));
 
     // init cache
-    var from_cache = [];
+    var from_cache = new Array();
     for (var i = 0; (node = this.from_box[0].options[i]); i++) {
       from_cache.push({value: node.value, text: node.text, displayed: 1});
     }
     this.from_box.data('cache', from_cache);
 
-    var to_cache = [];
+    var to_cache = new Array();
     for (var i = 0; (node = this.to_box[0].options[i]); i++) {
       to_cache.push({value: node.value, text: node.text, displayed: 1});
     }
     this.to_box.data('cache', to_cache);
 
     this.refresh_icons();
-  };
+  }
 
   SelectBox.prototype = {
     constructor: SelectBox,
@@ -219,7 +219,7 @@
       return true;
     }
 
-  };
+  }
 
   $.fn.select_transfer = function ( option ) {
     var args = Array.apply(null, arguments);
@@ -238,4 +238,4 @@
     f.find('.select-transfer').select_transfer();
   });
 
-})(jQuery);
+})(jQuery)

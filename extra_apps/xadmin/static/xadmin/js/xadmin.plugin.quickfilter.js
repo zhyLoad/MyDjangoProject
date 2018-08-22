@@ -46,4 +46,4 @@
 	  $('#content-block').toggleClass('col-md-10');
 	  $('#content-block').toggleClass('col-md-8');
   });
-})(jQuery);
+})(jQuery)

@@ -14,9 +14,9 @@ class BaseSetting(object):
 
 
 class GlobalSettings(object):
-    site_title = "mtianyan生鲜超市"
-    site_footer = "vueshop@mtianyan.cn"
-    # menu_style = "accordion"
+    site_title = "MyDjango测试项目"
+    site_footer = "test@123.com"
+    menu_style = "accordion"
 
 
 class VerifyCodeAdmin(object):

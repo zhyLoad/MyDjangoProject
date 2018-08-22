@@ -38,18 +38,18 @@ jQuery(function() {
                     var err_html = [];
                     for (var i = e['errors'].length - 1; i >= 0; i--) {
                       err_html.push('<span id="error_'+i+'_'+ e['id'] +'" class="help-inline error"><strong>'+e['errors'][i]+'</strong></span>');
-                    }
-                      errdiv.find('.controls').append(err_html.join('\n'));
+                    };
+                    errdiv.find('.controls').append(err_html.join('\n'));
                   } else {
                     non_fields_errors = non_fields_errors.concat(e['errors']);
                   }
-                }
-                  if(non_fields_errors.length){
+                };
+                if(non_fields_errors.length){
                   var err_html = [];
                   for (var i = non_fields_errors.length - 1; i >= 0; i--) {
                     err_html.push('<p class="text-error"><strong>'+e['errors'][i]+'</strong></p>');
-                  }
-                    form.prepend(err_html.join('\n'));
+                  };
+                  form.prepend(err_html.join('\n'));
                 }
               } else {
                 btn.trigger('post-success');
