@@ -22,7 +22,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from MyDjangoProject.settings import MEDIA_ROOT
-from goods.views import GoodsListViewSet, CategoryViewset, BannerViewset, IndexCategoryViewset, HotSearchsViewset
+from goods.views import GoodsListViewSet, CategoryViewset, BannerViewset, IndexCategoryViewset, HotSearchsViewset,StoreViewset
 from trade.views import ShoppingCartViewset, OrderViewset, AlipayView
 from user_operation.views import UserFavViewset, LeavingMessageViewset, AddressViewset
 from users.views import SmsCodeViewset, UserViewset
@@ -37,6 +37,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 # goods_list = GoodsListViewSet.as_view({
 #     'get': 'list',
 # })
+
 router = DefaultRouter()
 
 # 配置goods的url,这个basename是干啥的
@@ -74,6 +75,9 @@ router.register(r'indexgoods', IndexCategoryViewset, base_name="indexgoods")
 
 # 热搜词
 router.register(r'hotsearchs', HotSearchsViewset, base_name="hotsearchs")
+
+# 门店
+router.register(r'stores', StoreViewset, base_name="stores")
 
 # from MyDjangoProject.settings import STATIC_ROOT
 

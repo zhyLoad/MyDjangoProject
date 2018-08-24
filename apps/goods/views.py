@@ -11,8 +11,8 @@ from rest_framework.views import APIView
 
 from goods.filters import GoodsFilter
 from goods.serializers import GoodsSerializer, CategorySerializer, BannerSerializer, IndexCategorySerializer, \
-    HotWordsSerializer
-from .models import Goods, GoodsCategory, Banner, HotSearchWords
+    HotWordsSerializer,StoreSerializer
+from .models import Goods, GoodsCategory, Banner, HotSearchWords, Store
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework import viewsets
@@ -133,3 +133,16 @@ class HotSearchsViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     queryset = HotSearchWords.objects.all().order_by("-index")
     serializer_class = HotWordsSerializer
+
+
+class StoreViewset( mixins.ListModelMixin,
+                     mixins.RetrieveModelMixin,
+                     mixins.UpdateModelMixin,
+                     mixins.DestroyModelMixin,
+                     mixins.CreateModelMixin,
+                     viewsets.GenericViewSet):
+    """
+    门店的增删改查
+    """
+    queryset = Store.objects.all()
+    serializer_class = StoreSerializer

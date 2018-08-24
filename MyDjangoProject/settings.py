@@ -53,9 +53,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-  #  'users.apps.UsersConfig',  导致页面无法添加用户
+  #  'users.apps.UsersConfig',  导致页面无法添加用户 remove when the Django version>1.9
     'goods.apps.GoodsConfig',
     'trade.apps.TradeConfig',
+    'common.apps.CommonConfig',
     'user_operation.apps.UserOperationConfig',
     'xadmin',
     'crispy_forms',

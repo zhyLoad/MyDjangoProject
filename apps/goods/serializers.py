@@ -1,10 +1,11 @@
 # encoding: utf-8
 from django.db.models import Q
 
+
 __author__ = 'mtianyan'
 __date__ = '2018/2/14 0014 16:44'
 
-from goods.models import Goods, GoodsCategory, GoodsImage, Banner, GoodsCategoryBrand, IndexAd, HotSearchWords
+from goods.models import Goods, GoodsCategory, GoodsImage, Banner, GoodsCategoryBrand, IndexAd, HotSearchWords,Store
 from rest_framework import serializers
 
 
@@ -102,4 +103,10 @@ class IndexCategorySerializer(serializers.ModelSerializer):
 class HotWordsSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotSearchWords
+        fields = "__all__"
+
+
+class StoreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Store
         fields = "__all__"
