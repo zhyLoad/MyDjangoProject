@@ -22,6 +22,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from MyDjangoProject.settings import MEDIA_ROOT
+from common.views import AddressesViewset
 from goods.views import GoodsListViewSet, CategoryViewset, BannerViewset, IndexCategoryViewset, HotSearchsViewset,StoreViewset
 from trade.views import ShoppingCartViewset, OrderViewset, AlipayView
 from user_operation.views import UserFavViewset, LeavingMessageViewset, AddressViewset
@@ -78,6 +79,9 @@ router.register(r'hotsearchs', HotSearchsViewset, base_name="hotsearchs")
 
 # 门店
 router.register(r'stores', StoreViewset, base_name="stores")
+
+# 通用地址
+router.register(r'addresses', AddressesViewset, base_name="addresses")
 
 # from MyDjangoProject.settings import STATIC_ROOT
 

@@ -9,8 +9,8 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from goods.filters import GoodsFilter
-from goods.serializers import GoodsSerializer, CategorySerializer, BannerSerializer, IndexCategorySerializer, \
+from .filters import GoodsFilter
+from .serializers import GoodsSerializer, CategorySerializer, BannerSerializer, IndexCategorySerializer, \
     HotWordsSerializer,StoreSerializer
 from .models import Goods, GoodsCategory, Banner, HotSearchWords, Store
 from rest_framework import mixins

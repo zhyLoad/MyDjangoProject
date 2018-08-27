@@ -5,7 +5,8 @@ from django.db import models
 # Create your models here.
 from DjangoUeditor.models import UEditorField
 
-from common.models import Address
+from common.models import Addresses
+import uuid
 
 
 class GoodsCategory(models.Model):
@@ -158,14 +159,14 @@ class Store(models.Model):
     门店
     """
     name = models.CharField(max_length=100, verbose_name="门店名称")
-    identify = models.CharField(default="", max_length=30, verbose_name="门店标识号", help_text="门店标识号")
+    identify = models.CharField(blank=False,default=uuid.uuid5(uuid.NAMESPACE_DNS, 'python.org') , max_length=30, verbose_name="门店标识号", help_text="门店标识号")
     image = models.ImageField(upload_to="", verbose_name="图片", null=True, blank=True)
-    address = models.ForeignKey(Address,on_delete=models.CASCADE, verbose_name="门店地址")
-    opening_time = models.TimeField(verbose_name="开始营业时间")
-    closing_time = models.TimeField(verbose_name="关门时间")
-    mobile = models.CharField(null=True, blank=True, max_length=11, verbose_name="电话", help_text="电话号码")
-    score = models.IntegerField(default=0, verbose_name="门店评分")
-    brief_introduce = models.TextField(max_length=500, verbose_name="门店简介")
+    address = models.ForeignKey(Addresses,on_delete=models.CASCADE, verbose_name="门店地址")
+    opening_time = models.TimeField(verbose_name="开始营业时间",null=True,blank=True)
+    closing_time = models.TimeField(verbose_name="关门时间",null=True,blank=True)
+    mobile = models.CharField(blank=True,null=True, max_length=11, verbose_name="电话", help_text="电话号码")
+    score = models.IntegerField(default=0, verbose_name="门店评分",null=True)
+    brief_introduce = models.TextField(max_length=500, verbose_name="门店简介",null=True)
     goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name="商品")
 
     class Meta:

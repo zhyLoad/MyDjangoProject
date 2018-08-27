@@ -5,7 +5,7 @@ from django.db.models import Q
 __author__ = 'mtianyan'
 __date__ = '2018/2/14 0014 16:44'
 
-from goods.models import Goods, GoodsCategory, GoodsImage, Banner, GoodsCategoryBrand, IndexAd, HotSearchWords,Store
+from .models import Goods, GoodsCategory, GoodsImage, Banner, GoodsCategoryBrand, IndexAd, HotSearchWords,Store
 from rest_framework import serializers
 
 
