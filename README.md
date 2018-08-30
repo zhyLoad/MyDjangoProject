@@ -73,3 +73,8 @@ django版本必须大于等于2.0
     键入http://localhost:8000，可以在浏览器看到所有Rest风格的API接口
 6.其他数据脚本导入
    db_tools下有两个import_xxx.py文件，cd到该目录下（进入虚拟环境的前提下），执行python import_xxx.py，可将商品和目录相关的测试数据导入到数据库中。
+
+
+遇到问题解决汇总：
+1）Python3.6环境执行时总是报“AttributeError: 'NoneType' object has no attribute 'split'”
+解决方案：https://stackoverflow.com/questions/21059640/wsgiref-error-attributeerror-nonetype-object-has-no-attribute-split
