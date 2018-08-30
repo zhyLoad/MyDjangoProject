@@ -55,4 +55,4 @@ class AddressSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserAddress
-        fields = ("id", "user", "province", "city", "district", "address", "signer_name", "add_time", "signer_mobile")
+        fields = ("id", "user", "address", "signer_name")
