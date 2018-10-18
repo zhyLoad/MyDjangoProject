@@ -12,9 +12,9 @@
 ## Quick Start
 
 ```
-$ git clone https://github.com/mtianyan/MyDjangoProject.git
+$ git clone https://github.com/zhyLoad/MyDjangoProject.git
 $ cd MyDjangoProject
-$ pip install -r req_shop.txt
+$ pip install -r requirements.txt
 ```
 
 数据库文件(自行导入): vueshop.sql
