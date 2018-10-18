@@ -1,4 +1,4 @@
-#!d:\git_local\python\git-codes\MyDjangoProject\MyDjangoProject\venv\scripts\python3.exe
+#!d:\git_local\python\git-codes\MyDjangoProject\MyDjangoProject\venv\Scripts\python3.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'future==0.16.0','console_scripts','futurize'
 __requires__ = 'future==0.16.0'
 import re

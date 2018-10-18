@@ -14,7 +14,7 @@ django.setup()
 
 from goods.models import Goods, GoodsCategory, GoodsImage
 
-from db_tools.data.product_data import row_data
+from data.product_data import row_data
 
 for goods_detail in row_data:
     goods = Goods()

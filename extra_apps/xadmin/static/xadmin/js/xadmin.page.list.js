@@ -1,7 +1,7 @@
 jQuery(function($){
     //full screen btn
     $('.layout-btns .layout-full').click(function(e){
-        var icon = $(this).find('i')
+        var icon = $(this).find('i');
         if($(this).hasClass('active')){
             // reset
             $('#left-side, ul.breadcrumb').show('fast');

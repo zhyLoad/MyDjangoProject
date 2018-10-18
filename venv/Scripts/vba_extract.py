@@ -1,4 +1,4 @@
-#!d:\git_local\python\git-codes\MyDjangoProject\MyDjangoProject\venv\scripts\python3.exe
+#!d:\git_local\python\git-codes\MyDjangoProject\MyDjangoProject\venv\Scripts\python3.exe
 
 ##############################################################################
 #

@@ -20,28 +20,28 @@
                 clearAcross();
                 $(options.allToggle).prop('checked', false);
             }
-        }
+        };
         showQuestion = function() {
             $(options.acrossClears).hide();
             $(options.acrossQuestions).show();
             $(options.allContainer).hide();
-        }
+        };
         showClear = function() {
             $(options.acrossClears).show();
             $(options.acrossQuestions).hide();
             $(options.allContainer).show();
             $(options.counterContainer).hide();
-        }
+        };
         reset = function() {
             $(options.acrossClears).hide();
             $(options.acrossQuestions).hide();
             $(options.allContainer).hide();
             $(options.counterContainer).show();
-        }
+        };
         clearAcross = function() {
             reset();
             $(options.acrossInput).val(0);
-        }
+        };
 
         // Show counter by default
         $(options.counterContainer).show();
@@ -95,7 +95,7 @@
         if ($(options.acrossInput).val() == 1) {
             showClear();
         }
-    }
+    };
     /* Setup plugin defaults */
     $.fn.actions.defaults = {
         counterContainer: "div.form-actions .action-counter",
@@ -105,12 +105,12 @@
         acrossClears: "div.form-actions .clear",
         allToggle: "#action-toggle",
         selectedClass: "warning"
-    }
+    };
 
     $.do_action = function(name){
       $('#action').val(name);
       $('#changelist-form').submit();
-    }
+    };
 
     $(document).ready(function($) {
         $(".results input.action-select").actions();

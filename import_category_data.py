@@ -17,7 +17,7 @@ django.setup()
 # 这行代码必须在初始化django之后
 from goods.models import GoodsCategory
 
-from db_tools.data.category_data import row_data
+from data.category_data import row_data
 
 # 一级分类
 for lev1_cat in row_data:

@@ -63,9 +63,8 @@
 		this.$select
 			.hide()
 			.after(this.$container);
-	};
-
-	Multiselect.prototype = {
+    }
+    Multiselect.prototype = {
 		
 		defaults: {
 			// Default text function will either print 'None selected' in case no option is selected,

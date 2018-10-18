@@ -26,7 +26,7 @@
             ++i;
         }
         return result;
-    }
+    };
 
     $.date_local = {
       days: gettext("Sunday Monday Tuesday Wednesday Thursday Friday Saturday Sunday").split(' '),
@@ -41,7 +41,7 @@
       dateFormat: get_format('DATE_INPUT_FORMATS')[0],
       dateJSFormat: $.convert_format(get_format('DATE_INPUT_FORMATS')[0]),
       timeRepr: gettext('%T')
-    }
+    };
 
     $.fn.datepicker.dates['xadmin'] = $.date_local;
 
@@ -52,7 +52,7 @@
         $(this).parent().find('button').click(function(e){
           dp.update(new Date());
         })
-      })
+      });
       if($.fn.clockpicker){
         f.find('.input-group.bootstrap-clockpicker').each(function(e){
           var el = $(this).find('input');
@@ -87,4 +87,4 @@
       }
     });
 
-})(jQuery)
+})(jQuery);

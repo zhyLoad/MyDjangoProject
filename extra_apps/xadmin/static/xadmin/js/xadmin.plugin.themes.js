@@ -21,7 +21,7 @@
     var domain = options.domain ? '; domain=' + options.domain : '';
     var secure = options.secure ? '; secure' : '';
     document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
-  }
+  };
 
   $(function(){
     var top_nav = $('#top-nav');
@@ -67,7 +67,7 @@
               modal.modal('hide');
               iframe.parentNode.removeChild(iframe);
               iframe = null;
-            })
+            });
 
             var ifmDoc = iframe.contentDocument || iframe.contentWindow.document;
             ifmDoc.open();
@@ -80,7 +80,7 @@
             $('#g-theme-menu li').removeClass('active');
             $el.parent().addClass('active');
           });
-        })
+        });
 
         modal.modal().css(
             {
