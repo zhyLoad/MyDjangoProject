@@ -5,10 +5,16 @@ class Tenant(models.Model):
      """
        租户信息
      """
+
+     TENANT_STATUS = (
+         (1, "可用"),
+         (2, "冻结"),
+     )
+
      name =  models.CharField(max_length=100, null=False, blank=True, verbose_name="租户名称")
      phone = models.CharField(max_length=20, null=False, blank=True, verbose_name="租户电话")
      email = models.CharField(max_length=500, null=False, blank=True, verbose_name="租户邮箱")
-     status = models.SmallIntegerField( null=False, blank=True, verbose_name="租户状态")
+     status = models.IntegerField(choices=TENANT_STATUS,null=False, blank=True, verbose_name="租户状态")
 
      class Meta:
          verbose_name = '租户'
