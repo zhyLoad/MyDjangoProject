@@ -26,6 +26,7 @@ from common.views import AddressesViewset
 from goods.views import GoodsListViewSet, CategoryViewset, BannerViewset, IndexCategoryViewset, HotSearchsViewset,StoreViewset
 from trade.views import ShoppingCartViewset, OrderViewset, AlipayView
 from user_operation.views import UserFavViewset, LeavingMessageViewset, AddressViewset
+from system_manage.views import TenantViewset,ManagerViewset,OrganizationViewset
 from users.views import SmsCodeViewset, UserViewset
 # from goods.views import GoodsListView,
 # from goods.views_base import GoodsListView
@@ -82,6 +83,15 @@ router.register(r'stores', StoreViewset, base_name="stores")
 
 # 通用地址
 router.register(r'addresses', AddressesViewset, base_name="addresses")
+
+# 租户
+router.register(r'tenants', TenantViewset, base_name="tenants")
+
+# 管理员
+router.register(r'managers', ManagerViewset, base_name="managers")
+
+#组织机构
+router.register(r'organizations', OrganizationViewset, base_name="organizations")
 
 # from MyDjangoProject.settings import STATIC_ROOT
 
