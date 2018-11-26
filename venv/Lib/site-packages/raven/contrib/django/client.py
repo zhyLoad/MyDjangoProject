@@ -83,6 +83,23 @@ def format_sql(sql, params):
     return sql, rv
 
 
+def record_sql(vendor, alias, start, duration, sql, params):
+    def processor(data):
+        real_sql, real_params = format_sql(sql, params)
+        if real_params:
+            try:
+                real_sql = real_sql % tuple(real_params)
+            except TypeError:
+                pass
+        # maybe category to 'django.%s.%s' % (vendor, alias or
+        #   'default') ?
+        data.update({
+            'message': real_sql,
+            'category': 'query',
+        })
+    breadcrumbs.record(processor=processor)
+
+
 @once
 def install_sql_hook():
     """If installed this causes Django's queries to be captured."""
@@ -98,19 +115,6 @@ def install_sql_hook():
         # XXX(mitsuhiko): On some very old django versions (<1.6) this
         # trickery would have to look different but I can't be bothered.
         return
-
-    def record_sql(vendor, alias, start, duration, sql, params):
-        def processor(data):
-            real_sql, real_params = format_sql(sql, params)
-            if real_params:
-                real_sql = real_sql % tuple(real_params)
-            # maybe category to 'django.%s.%s' % (vendor, alias or
-            #   'default') ?
-            data.update({
-                'message': real_sql,
-                'category': 'query',
-            })
-        breadcrumbs.record(processor=processor)
 
     def record_many_sql(vendor, alias, start, sql, param_list):
         duration = time.time() - start
@@ -182,9 +186,13 @@ class DjangoClient(Client):
         return user_info
 
     def get_data_from_request(self, request):
-        result = {}
+        rv = {}
+        self.update_data_from_request(request, rv)
+        return rv
 
-        result['user'] = self.get_user_info(request)
+    def update_data_from_request(self, request, result):
+        if result.get('user') is None:
+            result['user'] = self.get_user_info(request)
 
         try:
             uri = request.build_absolute_uri()
@@ -232,8 +240,6 @@ class DjangoClient(Client):
             }
         })
 
-        return result
-
     def build_msg(self, *args, **kwargs):
         data = super(DjangoClient, self).build_msg(*args, **kwargs)
 
@@ -262,7 +268,7 @@ class DjangoClient(Client):
         return data
 
     def capture(self, event_type, request=None, **kwargs):
-        if 'data' not in kwargs:
+        if kwargs.get('data') is None:
             kwargs['data'] = data = {}
         else:
             data = kwargs['data']
@@ -272,7 +278,7 @@ class DjangoClient(Client):
 
         is_http_request = isinstance(request, HttpRequest)
         if is_http_request:
-            data.update(self.get_data_from_request(request))
+            self.update_data_from_request(request, data)
 
         if kwargs.get('exc_info'):
             exc_value = kwargs['exc_info'][1]

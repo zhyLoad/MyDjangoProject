@@ -1,4 +1,4 @@
-#!d:\git_local\python\git-codes\MyDjangoProject\MyDjangoProject\venv\Scripts\python3.exe
+#!D:\Git_local\python\git-codes\Django-projects\MyDjangoProject\MyDjangoProject\venv\Scripts\python3.exe
 from django.core import management
 
 if __name__ == "__main__":
