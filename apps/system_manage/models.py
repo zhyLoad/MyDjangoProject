@@ -20,6 +20,9 @@ class Tenant(models.Model):
          verbose_name = '租户'
          verbose_name_plural = verbose_name
 
+     def __str__(self):
+         return self.name
+
 class Manager(models.Model):
      """
        管理员信息

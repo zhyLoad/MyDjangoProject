@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'system_manage.apps.SystemManageConfig',
     'user_operation.apps.UserOperationConfig',
+    'information.apps.InformationConfig',
     'xadmin',
     'crispy_forms',
     'DjangoUeditor',

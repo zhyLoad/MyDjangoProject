@@ -28,6 +28,7 @@ from trade.views import ShoppingCartViewset, OrderViewset, AlipayView
 from user_operation.views import UserFavViewset, LeavingMessageViewset, AddressViewset
 from system_manage.views import TenantViewset,ManagerViewset,OrganizationViewset
 from users.views import SmsCodeViewset, UserViewset
+from information.views import InformationViewset
 # from goods.views import GoodsListView,
 # from goods.views_base import GoodsListView
 from rest_framework.routers import DefaultRouter
@@ -92,6 +93,11 @@ router.register(r'managers', ManagerViewset, base_name="managers")
 
 #组织机构
 router.register(r'organizations', OrganizationViewset, base_name="organizations")
+
+#图文
+router.register(r'information', InformationViewset, base_name="informations")
+
+
 
 # from MyDjangoProject.settings import STATIC_ROOT
 
