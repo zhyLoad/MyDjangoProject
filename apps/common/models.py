@@ -24,10 +24,6 @@ class BaseEntry(models.Model):
 
 
 
-
-
-
-
 class Addresses(BaseEntry):
     """
     地址

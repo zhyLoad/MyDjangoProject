@@ -1,5 +1,10 @@
 import xadmin
 from .models import Tenant,Manager,Organization
+from common.ModelUtils import get_not_show_properties_extend
+
+
+not_show_in_admin_page_params = ['delete_flag']
+not_show_in_admin_page_params_common = get_not_show_properties_extend(not_show_in_admin_page_params)
 
 
 class TenantAdmin(object):
@@ -10,6 +15,7 @@ class TenantAdmin(object):
     search_fields = ["name","status"]
 
     show_detail_fields = []
+    exclude = get_not_show_properties_extend(['delete_flag','status'])
 
 
 
@@ -20,6 +26,7 @@ class ManagerAdmin(object):
     list_editable = ['name']
 
     show_detail_fields = []
+    exclude = not_show_in_admin_page_params_common
 
 
 
@@ -34,6 +41,7 @@ class OrganizationAdmin(object):
     list_editable = ['name']
 
     show_detail_fields = []
+    exclude = not_show_in_admin_page_params_common
 
 
 

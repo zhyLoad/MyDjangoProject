@@ -13,6 +13,7 @@ class InformationEditSerializer(serializers.ModelSerializer):
         model = Information
         fields = ("information_type","information_status","tenant","audit_reason")
 
+
 class MultilanguageInformationSerializer(serializers.ModelSerializer):
      class Meta:
         model = MultilanguageInformation
