@@ -1,7 +1,7 @@
 from rest_framework import mixins
 from rest_framework import viewsets
 from .models import Information, MultilanguageInformation, FileResource,PosterResource
-from .serializers import InformationSerializer,MultilanguageInformationSerializer,FileResourceSerializer,PosterResourceSerializer
+from .serializers import InformationAllSerializer,InformationEditSerializer,MultilanguageInformationSerializer,FileResourceSerializer,PosterResourceSerializer
 
 
 class InformationViewset(mixins.ListModelMixin,
@@ -14,7 +14,7 @@ class InformationViewset(mixins.ListModelMixin,
     图文的增删改查
     """
     queryset = Information.objects.all()
-    serializer_class = InformationSerializer
+    serializer_class = InformationEditSerializer
 
 
 class MultilanguageInformationViewset(mixins.ListModelMixin,

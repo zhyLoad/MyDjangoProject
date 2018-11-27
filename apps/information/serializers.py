@@ -3,10 +3,15 @@ from .models import Information, MultilanguageInformation, FileResource,PosterRe
 from rest_framework import serializers
 
 
-class InformationSerializer(serializers.ModelSerializer):
+class InformationAllSerializer(serializers.ModelSerializer):
     class Meta:
         model = Information
         fields = "__all__"
+
+class InformationEditSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Information
+        fields = ("information_type","information_status","tenant","audit_reason")
 
 class MultilanguageInformationSerializer(serializers.ModelSerializer):
      class Meta:
