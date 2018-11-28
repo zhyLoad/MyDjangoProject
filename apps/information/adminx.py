@@ -8,26 +8,6 @@ not_show_in_admin_page_params_common = get_not_show_properties_extend(not_show_i
 
 
 
-class MultilanguageInformationInline(object):
-    model = MultilanguageInformation
-    extra = 1
-    exclude = not_show_in_admin_page_params_common
-
-
-class FileResourceInline(object):
-    model = FileResource
-    extra = 1
-    exclude = not_show_in_admin_page_params_common
-
-
-class PosterResourceInline(object):
-    model = PosterResource
-    extra = 1
-    exclude = not_show_in_admin_page_params_common
-
-
-
-
 class InformationAdmin(object):
     refresh_times = (1,3, 5,10)
 
@@ -37,12 +17,31 @@ class InformationAdmin(object):
 
     show_detail_fields = []
 
-    inlines = [MultilanguageInformationInline,FileResourceInline,PosterResourceInline]
+
 
     add_not_show_properties = ['delete_flag','audit_reason','information_status']
     not_show_in_admin_page_params_information = get_not_show_properties_extend(add_not_show_properties)
     exclude = not_show_in_admin_page_params_information
 
+    class MultilanguageInformationInline(object):
+        model = MultilanguageInformation
+        extra = 1
+        exclude = not_show_in_admin_page_params_common
+        style = 'tab'
+
+    class FileResourceInline(object):
+        model = FileResource
+        extra = 1
+        exclude = not_show_in_admin_page_params_common
+        style = 'tab'
+
+    class PosterResourceInline(object):
+        model = PosterResource
+        extra = 1
+        exclude = not_show_in_admin_page_params_common
+        style = 'tab'
+
+    inlines = [MultilanguageInformationInline,FileResourceInline,PosterResourceInline]
 
 
 
@@ -88,6 +87,6 @@ class PosterResourceAdmin(object):
 
 
 xadmin.site.register(Information, InformationAdmin)
-xadmin.site.register(MultilanguageInformation, MultilanguageInformationAdmin)
-xadmin.site.register(FileResource, FileResourceAdmin)
-xadmin.site.register(PosterResource, PosterResourceAdmin)
+# xadmin.site.register(MultilanguageInformation, MultilanguageInformationAdmin)
+# xadmin.site.register(FileResource, FileResourceAdmin)
+# xadmin.site.register(PosterResource, PosterResourceAdmin)

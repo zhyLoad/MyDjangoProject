@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'system_manage.apps.SystemManageConfig',
     'user_operation.apps.UserOperationConfig',
     'information.apps.InformationConfig',
+    'kitchen.apps.KitchenConfig',    # this is a demo module
     'xadmin',
     'crispy_forms',
     'DjangoUeditor',
