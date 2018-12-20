@@ -29,6 +29,7 @@ from user_operation.views import UserFavViewset, LeavingMessageViewset, AddressV
 from system_manage.views import TenantViewset,ManagerViewset,OrganizationViewset
 from users.views import SmsCodeViewset, UserViewset
 from information.views import InformationViewset
+from lems.views import CategoryViewset
 # from goods.views import GoodsListView,
 # from goods.views_base import GoodsListView
 from rest_framework.routers import DefaultRouter
@@ -96,6 +97,10 @@ router.register(r'organizations', OrganizationViewset, base_name="organizations"
 
 #图文
 router.register(r'information', InformationViewset, base_name="informations")
+
+#目录
+router.register(r'category', CategoryViewset, base_name="categorys")
+
 
 
 

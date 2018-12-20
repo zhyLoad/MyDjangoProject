@@ -48,5 +48,3 @@ class Addresses(BaseEntry):
 
     def __str__(self):
         return self.address_detail
-
-
