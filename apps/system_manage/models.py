@@ -2,16 +2,16 @@ from django.db import models
 from common.models import BaseEntry
 
 
+
+TENANT_STATUS = (
+    (1, "可用"),
+    (2, "冻结"),
+)
+
 class Tenant(BaseEntry):
      """
        租户信息
      """
-
-     TENANT_STATUS = (
-         (1, "可用"),
-         (2, "冻结"),
-     )
-
      name =  models.CharField(max_length=100, null=False, blank=True,default="", verbose_name="租户名称")
      phone = models.CharField(max_length=20, null=False, blank=True,default="", verbose_name="租户电话")
      email = models.EmailField(max_length=500, null=True, blank=True, verbose_name="租户邮箱")

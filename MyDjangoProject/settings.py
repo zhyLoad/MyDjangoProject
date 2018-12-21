@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'information.apps.InformationConfig',
     'lems.apps.LemsConfig',
     'kitchen.apps.KitchenConfig',    # this is a demo module
+    'test_nested.apps.TestNestedConfig',# this is a test module
     'xadmin',
     'crispy_forms',
     'DjangoUeditor',

@@ -1,10 +1,11 @@
 from rest_framework import mixins
 from rest_framework import viewsets
-from .models import Information, MultilanguageInformation, FileResource,PosterResource
-from .serializers import InformationAllSerializer,InformationEditSerializer,MultilanguageInformationSerializer,FileResourceSerializer,PosterResourceSerializer
+from .models import Information
+from .serializers import InformationSerializer
 
 
-class InformationViewset(mixins.ListModelMixin,
+class InformationViewset(
+                    mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
                     mixins.DestroyModelMixin,
@@ -14,42 +15,18 @@ class InformationViewset(mixins.ListModelMixin,
     图文的增删改查
     """
     queryset = Information.objects.all()
-    serializer_class = InformationEditSerializer
+    serializer_class = InformationSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
 
 
-class MultilanguageInformationViewset(mixins.ListModelMixin,
-                     mixins.RetrieveModelMixin,
-                     mixins.UpdateModelMixin,
-                     mixins.DestroyModelMixin,
-                     mixins.CreateModelMixin,
-                     viewsets.GenericViewSet):
-    """
-    图文多语言的增删改查
-    """
-    queryset = MultilanguageInformation.objects.all()
-    serializer_class = MultilanguageInformationSerializer
-
-
-class FileResourceViewset(mixins.ListModelMixin,
-                          mixins.RetrieveModelMixin,
-                          mixins.UpdateModelMixin,
-                          mixins.DestroyModelMixin,
-                          mixins.CreateModelMixin,
-                          viewsets.GenericViewSet):
-    """
-    文件资源的增删改查
-    """
-    queryset = FileResource.objects.all()
-    serializer_class = FileResourceSerializer
-
-class PosterResourceViewset(mixins.ListModelMixin,
-                           mixins.RetrieveModelMixin,
-                           mixins.UpdateModelMixin,
-                           mixins.DestroyModelMixin,
-                           mixins.CreateModelMixin,
-                           viewsets.GenericViewSet):
-     """
-      图片资源的增删改查
-     """
-     queryset = PosterResource.objects.all()
-     serializer_class = PosterResourceSerializer
