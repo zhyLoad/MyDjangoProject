@@ -1,6 +1,6 @@
 from .models import Information, MultilanguageInformation, FileResource,PosterResource
 from rest_framework import serializers
-from drf_writable_nested import WritableNestedModelSerializer
+# from drf_writable_nested import WritableNestedModelSerializer
 from system_manage.models import Tenant
 
 
@@ -27,7 +27,8 @@ class PosterResourceSerializer(serializers.ModelSerializer):
         model = PosterResource
         fields = ('pk','name','original_name','size','resource_url','horizontal_resoution','vertical_resoution')
 
-class InformationSerializer(WritableNestedModelSerializer):
+# class InformationSerializer(WritableNestedModelSerializer):
+class InformationSerializer(serializers.ModelSerializer):
     tenant = TenantSerializer(allow_null=False)
     multi_language_informations = MultilanguageInformationSerializer(allow_null=False,many=True)
     file_resources = FileResourceSerializer(allow_null=True,many=True)
@@ -39,23 +40,23 @@ class InformationSerializer(WritableNestedModelSerializer):
                   'file_resources','poster_resources'
                   )
 
-    def create(self, validated_data):
-        input_tenant = validated_data.pop('tenant')
-        tenant = Tenant.objects.filter(name=input_tenant.name)
-        information = Information.objects.create(tenant=tenant,**validated_data)
-        multi_languages_data = validated_data.pop('multi_language_informations')
-        for multi_language_data in multi_languages_data:
-            MultilanguageInformation.objects.create(information=information,**multi_language_data)
-
-        file_resources_data = validated_data.pop('file_resources')
-        for file_resource_data in file_resources_data:
-            FileResource.objects.create(information=information, **file_resource_data)
-
-        poster_resources_data = validated_data.pop('poster_resources')
-        for poster_resource_data in poster_resources_data:
-            MultilanguageInformation.objects.create(information=information, **poster_resource_data)
-
-        return information
+    # def create(self, validated_data):
+    #     input_tenant = validated_data.pop('tenant')
+    #     tenant = Tenant.objects.filter(name=input_tenant.name)
+    #     information = Information.objects.create(tenant=tenant,**validated_data)
+    #     multi_languages_data = validated_data.pop('multi_language_informations')
+    #     for multi_language_data in multi_languages_data:
+    #         MultilanguageInformation.objects.create(information=information,**multi_language_data)
+    #
+    #     file_resources_data = validated_data.pop('file_resources')
+    #     for file_resource_data in file_resources_data:
+    #         FileResource.objects.create(information=information, **file_resource_data)
+    #
+    #     poster_resources_data = validated_data.pop('poster_resources')
+    #     for poster_resource_data in poster_resources_data:
+    #         MultilanguageInformation.objects.create(information=information, **poster_resource_data)
+    #
+    #     return information
 
 
 # {

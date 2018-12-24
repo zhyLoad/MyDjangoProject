@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'user_operation.apps.UserOperationConfig',
     'information.apps.InformationConfig',
     'lems.apps.LemsConfig',
+    'tacs.apps.TacsConfig',
     'kitchen.apps.KitchenConfig',    # this is a demo module
     'test_nested.apps.TestNestedConfig',# this is a test module
     'xadmin',

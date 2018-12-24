@@ -1,7 +1,7 @@
 from rest_framework import mixins
 from rest_framework import viewsets
 from .models import Category, MultilanguageCategory, CategoryPicture
-from .serializers import CategoryAllSerializer,CategoryEditSerializer,MultilanguageCategorySerializer,CategoryPictureSerializer
+from .serializers import CategoryEditSerializer,MultilanguageCategorySerializer,CategoryPictureSerializer
 
 
 class CategoryViewset(mixins.ListModelMixin,
