@@ -8,6 +8,12 @@ from xadmin.plugins.inline import Inline
 from .models import Country, Continent, KitchenSink, Category, City,Microwave, Fridge
 
 
+class CategoryAdmin(object):
+    model = Category
+    fields = ('name', 'slug', 'parent','is_active','order')
+xadmin.site.register(Category, CategoryAdmin)
+
+
 class CountryInline(object):
     model = Country
     fields = ('name', 'code', 'population',)

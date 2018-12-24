@@ -1,4 +1,4 @@
-from .models import Information, MultilanguageInformation, FileResource,PosterResource
+from .models import Information, MultilanguageInformation, FileResource
 from rest_framework import serializers
 # from drf_writable_nested import WritableNestedModelSerializer
 from system_manage.models import Tenant
@@ -20,19 +20,14 @@ class MultilanguageInformationSerializer(serializers.ModelSerializer):
 class FileResourceSerializer(serializers.ModelSerializer):
      class Meta:
         model = FileResource
-        fields = ('pk','name','original_name','size','resource_url')
+        fields = ('pk','type','file')
 
-class PosterResourceSerializer(serializers.ModelSerializer):
-      class Meta:
-        model = PosterResource
-        fields = ('pk','name','original_name','size','resource_url','horizontal_resoution','vertical_resoution')
 
 # class InformationSerializer(WritableNestedModelSerializer):
 class InformationSerializer(serializers.ModelSerializer):
     tenant = TenantSerializer(allow_null=False)
     multi_language_informations = MultilanguageInformationSerializer(allow_null=False,many=True)
     file_resources = FileResourceSerializer(allow_null=True,many=True)
-    poster_resources = PosterResourceSerializer(allow_null=True,many=True)
 
     class Meta:
         model = Information
@@ -51,10 +46,6 @@ class InformationSerializer(serializers.ModelSerializer):
     #     file_resources_data = validated_data.pop('file_resources')
     #     for file_resource_data in file_resources_data:
     #         FileResource.objects.create(information=information, **file_resource_data)
-    #
-    #     poster_resources_data = validated_data.pop('poster_resources')
-    #     for poster_resource_data in poster_resources_data:
-    #         MultilanguageInformation.objects.create(information=information, **poster_resource_data)
     #
     #     return information
 

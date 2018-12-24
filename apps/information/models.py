@@ -42,17 +42,18 @@ class MultilanguageInformation(BaseEntry):
         verbose_name = "图文多语言"
         verbose_name_plural = verbose_name
 
-
+#文件资源类型：1-文件；2-图片；3-文本
+FILE_TYPE_CHOICES = ((1, 'file'), (2, 'poster'), (3, 'txt'))
 
 class FileResource(BaseEntry):
     """
     文件资源
     """
     information = models.ForeignKey(Information,on_delete=models.CASCADE,null=True, blank=True,verbose_name=u"图文",related_name="file_resources")
-    size = models.IntegerField(null=True,verbose_name="文件大小")
-    resource_url = models.CharField(max_length=4096,null=False,default="", verbose_name="文件路径")
-    original_name = models.TextField(max_length=100,null=False,default="",verbose_name="原文件名")
-    name = models.TextField(max_length=100,null=False,default="",verbose_name="文件名")
+    type = models.SmallIntegerField(choices=FILE_TYPE_CHOICES,
+                                       default=2,
+                                       help_text="file type")
+    file = models.FileField(upload_to='.', blank=True)
     delete_flag = models.BooleanField(default=True, null=False, verbose_name="有效标识")
 
     class Meta:
@@ -61,19 +62,3 @@ class FileResource(BaseEntry):
 
 
 
-class PosterResource(BaseEntry):
-    """
-    图片资源
-    """
-    information = models.ForeignKey(Information,on_delete=models.CASCADE,null=True, blank=True,verbose_name=u"图文",related_name="poster_resources")
-    size = models.IntegerField(null=True, verbose_name="文件大小")
-    resource_url = models.CharField(max_length=4096 ,null=False,default="", verbose_name="文件路径")
-    original_name = models.TextField(max_length=100,null=False,default="", verbose_name="原文件名")
-    name = models.TextField(max_length=100,null=False,default="", verbose_name="文件名")
-    horizontal_resoution = models.IntegerField(null=True, verbose_name="垂直分辨率")
-    vertical_resoution = models.IntegerField(null=True, verbose_name="水平分辨率")
-    delete_flag = models.BooleanField(default=True, null=False, verbose_name="有效标识")
-
-    class Meta:
-        verbose_name = "图片资源"
-        verbose_name_plural = verbose_name
