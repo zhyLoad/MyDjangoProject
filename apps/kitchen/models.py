@@ -138,26 +138,26 @@ class Microwave(models.Model):
 # Django-mptt
 # https://github.com/django-mptt/django-mptt/
 #
-class Category(MPTTModel):
-    name = models.CharField(max_length=64)
-    slug = models.CharField(max_length=64)
-    parent = TreeForeignKey('self', null=True, blank=True,
-                            related_name='children',on_delete=models.CASCADE,)
-    is_active = models.BooleanField()
-    order = models.IntegerField()
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = "Categories (django-mptt)"
-
-    class MPTTMeta:
-        order_insertion_by = ['order']
-
-    def save(self, *args, **kwargs):
-        super(Category, self).save(*args, **kwargs)
-        Category.objects.rebuild()
+# class Category(MPTTModel):
+#     name = models.CharField(max_length=64)
+#     slug = models.CharField(max_length=64)
+#     parent = TreeForeignKey('self', null=True, blank=True,
+#                             related_name='children',on_delete=models.CASCADE,)
+#     is_active = models.BooleanField()
+#     order = models.IntegerField()
+#
+#     def __unicode__(self):
+#         return self.name
+#
+#     class Meta:
+#         verbose_name_plural = "Categories (django-mptt)"
+#
+#     class MPTTMeta:
+#         order_insertion_by = ['order']
+#
+#     def save(self, *args, **kwargs):
+#         super(Category, self).save(*args, **kwargs)
+#         Category.objects.rebuild()
 
 
 #

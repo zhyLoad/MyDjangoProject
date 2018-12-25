@@ -18,16 +18,16 @@ class KitchenSinkViewset( mixins.ListModelMixin,
 
 
 
-class CategoryViewset(mixins.ListModelMixin,
-                        mixins.RetrieveModelMixin,
-                        mixins.UpdateModelMixin,
-                        mixins.DestroyModelMixin,
-                        mixins.CreateModelMixin,
-                        viewsets.GenericViewSet):
-        """
-        目录的增删改查
-        """
-        queryset = Category.objects.all()
+# class CategoryViewset(mixins.ListModelMixin,
+#                         mixins.RetrieveModelMixin,
+#                         mixins.UpdateModelMixin,
+#                         mixins.DestroyModelMixin,
+#                         mixins.CreateModelMixin,
+#                         viewsets.GenericViewSet):
+#         """
+#         目录的增删改查
+#         """
+#         queryset = Category.objects.all()
 
 
 

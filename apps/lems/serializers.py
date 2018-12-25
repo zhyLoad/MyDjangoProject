@@ -1,16 +1,11 @@
-from .models import Category, MultilanguageCategory, CategoryPicture
+from .models import MultiCategory, MultilanguageCategory, CategoryPicture
 from rest_framework import serializers
 
 
-class CategoryAllSerializer(serializers.ModelSerializer):
+class MultiCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category
-        fields = "__all__"
-
-class CategoryEditSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Category
-        fields = ("parent_id","category_type","show_order")
+        model = MultiCategory
+        fields = ("parent","category_type","show_order")
 
 
 class MultilanguageCategorySerializer(serializers.ModelSerializer):

@@ -1,10 +1,10 @@
 from rest_framework import mixins
 from rest_framework import viewsets
-from .models import Category, MultilanguageCategory, CategoryPicture
-from .serializers import CategoryEditSerializer,MultilanguageCategorySerializer,CategoryPictureSerializer
+from .models import MultiCategory, MultilanguageCategory, CategoryPicture
+from .serializers import MultiCategorySerializer,MultilanguageCategorySerializer,CategoryPictureSerializer
 
 
-class CategoryViewset(mixins.ListModelMixin,
+class MultiCategoryViewset(mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
                     mixins.DestroyModelMixin,
@@ -13,8 +13,8 @@ class CategoryViewset(mixins.ListModelMixin,
     """
     目录的增删改查
     """
-    queryset = Category.objects.all()
-    serializer_class = CategoryEditSerializer
+    queryset = MultiCategory.objects.all()
+    serializer_class = MultiCategorySerializer
 
 
 class MultilanguageCategoryViewset(mixins.ListModelMixin,

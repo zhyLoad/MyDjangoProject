@@ -5,13 +5,13 @@ from xadmin.layout import *
 
 from xadmin.plugins.inline import Inline
 
-from .models import Country, Continent, KitchenSink, Category, City,Microwave, Fridge
+from .models import Country, Continent, KitchenSink, City,Microwave, Fridge
 
 
-class CategoryAdmin(object):
-    model = Category
-    fields = ('name', 'slug', 'parent','is_active','order')
-xadmin.site.register(Category, CategoryAdmin)
+# class CategoryAdmin(object):
+#     model = Category
+#     fields = ('name', 'slug', 'parent','is_active','order')
+# xadmin.site.register(Category, CategoryAdmin)
 
 
 class CountryInline(object):

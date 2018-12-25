@@ -30,7 +30,7 @@ from system_manage.views import TenantViewset,ManagerViewset,OrganizationViewset
 from users.views import SmsCodeViewset, UserViewset
 from information.views import InformationViewset
 from test_nested.views import UserViewset
-from lems.views import CategoryViewset
+from lems.views import MultiCategoryViewset
 from kitchen.views import KitchenSinkViewset
 # from goods.views import GoodsListView,
 # from goods.views_base import GoodsListView
@@ -103,7 +103,7 @@ router.register(r'information', InformationViewset, base_name="informations")
 
 router.register(r'testusers', UserViewset, base_name="testusers")
 #目录
-router.register(r'category', CategoryViewset, base_name="categorys")
+router.register(r'category', MultiCategoryViewset, base_name="categorys")
 
 
 

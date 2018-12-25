@@ -1,7 +1,6 @@
 from django.db import models
 
 from system_manage.models import Tenant
-from lems.models import Category
 from common.models import BaseEntry
 
 
@@ -17,10 +16,9 @@ class Information(BaseEntry):
   )
   information_type = models.IntegerField(choices=INFORMATION_TYPE,null=False, blank=True,default=1, verbose_name="图文类型")
   information_status = models.IntegerField(choices=INFORMATION_STATUS,null=False, blank=True,default=0, verbose_name="图文状态")
-  tenant = models.ForeignKey(Tenant,on_delete=models.CASCADE, verbose_name=u"租户")
+  tenant = models.ForeignKey(Tenant,on_delete=models.CASCADE,default='', verbose_name=u"租户")
   audit_reason = models.CharField(max_length=2048, null=True, blank=True, verbose_name="审核原因")
   delete_flag = models.BooleanField(default=True, null=False, verbose_name="有效标识")
-  categorys = models.ManyToManyField(Category)
 
   class Meta:
       verbose_name = '图文'
