@@ -65,5 +65,5 @@ class MultilanguageCategory(BaseEntry):
     delete_flag = models.BooleanField(default=True, null=False, verbose_name="有效标识")
 
     class Meta:
-        verbose_name = "图文多语言"
+        verbose_name = "目录多语言"
         verbose_name_plural = verbose_name
